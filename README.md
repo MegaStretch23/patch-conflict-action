@@ -47,3 +47,5 @@ added text -> CONFLICTING.
 - No dependencies, no network calls other than the GitHub API of the repo it runs in. Nothing is sent anywhere else.
 
 MIT licensed. Tests: `node test/classifier.test.js`.
+
+Kit with the Python CLI, the offline fixture and this action bundled: https://vedovino.gumroad.com/l/hhfiwl
