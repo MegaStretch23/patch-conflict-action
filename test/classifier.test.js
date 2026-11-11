@@ -1,0 +1,11 @@
+const assert = require('assert');
+const { classifyPair, renderTable } = require('../classifier');
+const mk = (start, cnt, rm, add) => `diff --git a/u.py b/u.py\n--- a/u.py\n+++ b/u.py\n@@ -${start},${cnt} +${start},${cnt} @@\n-${rm}\n+${add}\n`;
+assert.strictEqual(classifyPair('A', mk(40, 4, 'x<=n', 'x<n'), 'B', mk(40, 4, 'x<=n', 'x<n')).label, 'same-fix');
+assert.strictEqual(classifyPair('A', mk(40, 4, 'x<=n', 'x<n'), 'B', mk(41, 4, 'x<=n', 'range(n)')).label, 'conflicting');
+assert.strictEqual(classifyPair('A', mk(40, 4, 'a', 'b'), 'B', mk(90, 4, 'a', 'c')).label, 'partial');
+assert.strictEqual(classifyPair('A', mk(1, 1, 'a', 'b'), 'B', mk(1, 1, 'a', 'b').replace(/u\.py/g, 'v.py')).label, 'partial');
+const t = renderTable(7, [{ number: 2, diff: mk(40, 4, 'a', 'b') }, { number: 1, diff: mk(40, 4, 'a', 'c') }, { number: 3, diff: mk(90, 2, 'a', 'c') }]);
+assert.strictEqual(t.rows.length, 3);
+assert.ok(t.body.includes('| #1 | #2 | CONFLICTING |'));
+console.log('ok');

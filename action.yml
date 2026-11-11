@@ -1,0 +1,10 @@
+name: 'Patch-Conflict Classifier'
+description: 'Comment a conflict table (same-fix / conflicting / independent) on any issue that has 2+ linked pull requests.'
+branding: { icon: 'git-merge', color: 'blue' }
+inputs:
+  github_token: { description: 'Token with issues:write and pull-requests:read', default: '${{ github.token }}' }
+  min_prs: { description: 'Minimum linked PRs before commenting', default: '2' }
+  issue_number: { description: 'Issue to check (workflow_dispatch use)', required: false, default: '' }
+runs:
+  using: 'node20'
+  main: 'index.js'
