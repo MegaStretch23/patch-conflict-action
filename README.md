@@ -5,6 +5,10 @@ for every pair of PRs, **same-fix**, **CONFLICTING** or **independent**, with th
 
 The comment is created once and updated in place on later runs (marker `<!-- patch-conflict-classifier -->`).
 
+## Hosted / full version
+
+This Action is the free core. The packaged kit is on Gumroad: [Patch-Conflict Kit: GitHub Action + CLI that flag duplicate and conflicting PRs for one issue](https://vedovino.gumroad.com/l/hhfiwl?utm_source=github&utm_medium=readme&utm_campaign=patch-conflict-action) ($15). Try it in the browser on the [Hugging Face Space](https://huggingface.co/spaces/JohnVeds15/patch-conflict-classifier).
+
 ## Use
 
 ```yaml
